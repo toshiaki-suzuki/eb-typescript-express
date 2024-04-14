@@ -12,6 +12,13 @@
     "start": "node dist/app.js",
     "start:dev": "nodemon --watch src --exec npx ts-node src/app.ts",
     "build": "tsc",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "check-types": "tsc --noEmit",
+    "lint": "run-p -l -c --aggregate-output lint:*",
+    "lint:eslint": "eslint src/**/*.ts",
+    "lint:prettier": "prettier --check .",
+    "fix": "run-s -l -c fix:eslint fix:prettier",
+    "fix:eslint": "eslint --fix src/**/*.ts",
+    "fix:prettier": "prettier --write ."
   }
 }
