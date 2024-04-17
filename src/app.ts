@@ -4,7 +4,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-  res.send("Hello, Elastic Beanstalk!");
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("hello express\n");
 });
 
 app.listen(port, () => {
